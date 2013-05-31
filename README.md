@@ -1,4 +1,0 @@
-hackscience.github.io
-=====================
-
-blog
