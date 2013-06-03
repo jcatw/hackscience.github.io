@@ -119,7 +119,7 @@ Then, I wrap the subsequent package-loading / config / whatever code in an if-in
 
 Note that if-included blocks can nest, as demonstrated in the slime block above.</p>
 
-<p>include.el provides a simple mechanism for managing dependencies betweem includes.  One can add a :depends keyword to the include function call to specify a parent dependency which must be loaded first.  Under the hood, include.el constructs the directed dependency network and identifies a valid topological ordering via depth-first search.  Above, we use this mechanism to only load the abcl (armed bear common lisp) package if the slime interface is included.</p>
+<p>include.el provides a simple mechanism for managing dependencies between includes.  One can add a :depends keyword to the include function call to specify a parent dependency which must be loaded first.  Under the hood, include.el constructs the directed dependency network and identifies a valid topological ordering via depth-first search.  Above, we use this mechanism to only load the abcl (armed bear common lisp) package if the slime interface is included.</p>
 
 
 <p>Finally, and <strong>importantly</strong>, be sure to add <strong>(eval-included)</strong> to the end of your .emacs configuration.  The elisp blocks wrapped in if-included are not evaluated when the macro is evaluated, but are rather stored in a hash table called *included-elisp*.  This allows you to write your if-included blocks completely out of dependency order.
@@ -130,7 +130,7 @@ Note that if-included blocks can nest, as demonstrated in the slime block above.
 {% endhighlight %}
 (eval-included) identifies the proper load ordering and then sequentially evaluates the stored elisp.</p>
   
-<p>A few editing commands are provided as well.  Let's say that we want to edit our python-related configuration.  <em>M-x view-include name</em> will place an invisible overlay over all irrelavent content, leaving only the python-related elisp:
+<p>A few editing commands are provided as well.  Let's say that we want to edit our python-related configuration.  <em>M-x view-include name</em> will place an invisible overlay over all irrelevant content, leaving only the python-related elisp:
 
 {% highlight common-lisp %}
 ;; interpreted
