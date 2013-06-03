@@ -1,0 +1,5 @@
+permalink: /:year/:month/:title.html
+pygments: true
+frontpageposts: 3
+srcitems: 5
+blogurl: http://hackscience.github.io/

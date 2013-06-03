@@ -1,0 +1,150 @@
+---
+layout: post
+Title: include.el
+src: https://github.com/hackscience/include.el
+---
+<p><a href="https://github.com/hackscience/include.el">include.el</a> manages dependencies between arbitrary chunks of elisp.  It provides a simple dependency syntax along with a few hacks to make the viewing and editing of dependencies easier.  I use it to keep my config file (kind of) sane, and to speed up the process of getting emacs up and running in a new environment.  You may find it useful for managing emacs packages.</p>
+
+<p>To use the manager, put include.el somewhere on your load path, and add the following to your .emacs.
+
+{% highlight common-lisp %}
+;; load include mechanism
+(require 'include)
+{% endhighlight %}
+
+include.el's primary functionality is provided through the  <em>include</em> function and the <em>if-included</em> macro.
+
+{% highlight common-lisp %}
+;; enables (if-included 'identifying-symbol ...)
+(include 'identifying-symbol)
+
+;; only eval'd if (include 'identifying-symbol) has been eval'd
+(if-included 'identifying-symbol
+             (some stuff)
+             (some other stuff))
+{% endhighlight %}
+
+I put a set of includes right in the header of my .emacs file for easy access, commenting out whatever I'm not using at the moment.
+
+{% highlight common-lisp %}
+;; ========================================================================== ;;
+;; Includes - comment these out to prevent the feature from loading
+;; ========================================================================== ;;
+;;; font
+(include 'menlo)
+
+;;; languages
+;; lisps
+(include 'allegrocl)
+					;(include 'sbcl :depends 'slime)
+(include 'abcl :depends 'slime)
+					;(include 'clojure :depends 'slime)
+					;(include 'scheme)
+;; interpreted
+(include 'python)
+(include 'R)
+(include 'node)
+					;(include 'javascript)
+
+
+;; other
+					;(include 'scala)
+
+;;; markup
+					;(include 'mustache)
+
+;;; tools
+(include 'slime)
+					;(include 'git)
+					;(include 'auto-complete)
+					;(include 'eclim)
+
+;;; themes
+(include 'zenburn)
+
+;;; shells
+(include 'umass-shells)
+(include 'home-shells)
+{% endhighlight %}
+
+Then, I wrap the subsequent package-loading / config / whatever code in an if-included block.
+
+{% highlight common-lisp %}
+;; eli
+(if-included 'allegrocl
+	     (push "/Applications/acl82/eli" load-path)
+	     (load "fi-site-init.el")
+	     (setq fi:common-lisp-image-name "/Applications/acl82/alisp") 
+	     (setq fi:common-lisp-image-file "/Applications/acl82/alisp.dxl") 
+	     (setq fi:common-lisp-directory "/Applications/acl82"))
+
+;; node.js	     
+(if-included 'node
+	     (setenv "NODE_NO_READLINE" "1")  ;setting this env var fixes the node repl prompt
+	     (defun node ()
+	       (interactive)
+	       (make-comint "node" "node")
+	       (switch-to-buffer (get-buffer "*node*"))))
+
+;; menlo font
+(if-included 'menlo (set-face-attribute 'default nil :font "Menlo-16"))
+
+;; ess
+(if-included 'R
+	     (require 'ess-site)
+	     ; turn off auto underscore-to-assignment-arrow
+	     (ess-toggle-underscore nil))
+;; slime
+(if-included 'slime
+	     (require 'slime)
+	     (setq auto-mode-alist (append '(("\\.lisp$" . lisp-mode))
+					   auto-mode-alist))
+	     (setq slime-net-coding-system 'utf-8-unix)
+	     (slime-setup '(slime-fancy))
+	     ;; steel bank common lisp
+	     (if-included 'sbcl (setq inferior-lisp-program "/usr/local/bin/sbcl"))
+	     ;; armed bear common lisp
+	     (if-included 'abcl (setq inferior-lisp-program "abcl")))
+;;; python
+(if-included 'python
+	     (require 'python-mode)
+	     (autoload 'python-mode "python-mode" "Python Mode." t)
+	     (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+
+	     ;; rebind C-del to delete word
+	     (add-hook 'python-mode-hook
+		       (lambda ()
+			 (define-key python-mode-map (kbd "C-<backspace>") 'backward-kill-word))))
+{% endhighlight %}
+
+Note that if-included blocks can nest, as demonstrated in the slime block above.</p>
+
+<p>include.el provides a simple mechanism for managing dependencies betweem includes.  One can add a :depends keyword to the include function call to specify a parent dependency which must be loaded first.  Under the hood, include.el constructs the directed dependency network and identifies a valid topological ordering via depth-first search.  Above, we use this mechanism to only load the abcl (armed bear common lisp) package if the slime interface is included.</p>
+
+
+<p>Finally, and <strong>importantly</strong>, be sure to add <strong>(eval-included)</strong> to the end of your .emacs configuration.  The elisp blocks wrapped in if-included are not evaluated when the macro is evaluated, but are rather stored in a hash table called *included-elisp*.  This allows you to write your if-included blocks completely out of dependency order.
+{% highlight common-lisp %}
+;; evaluate included elisp, respecting dependencies
+(eval-included)
+;;; .emacs ends here
+{% endhighlight %}
+(eval-included) identifies the proper load ordering and then sequentially evaluates the stored elisp.</p>
+  
+<p>A few editing commands are provided as well.  Let's say that we want to edit our python-related configuration.  <em>M-x view-include name</em> will place an invisible overlay over all irrelavent content, leaving only the python-related elisp:
+
+{% highlight common-lisp %}
+;; interpreted
+(include 'python)
+
+;;; python
+(if-included 'python
+	     (require 'python-mode)
+	     (autoload 'python-mode "python-mode" "Python Mode." t)
+	     (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+
+	     ;; rebind C-del to delete word
+	     (add-hook 'python-mode-hook
+		       (lambda ()
+			 (define-key python-mode-map (kbd "C-<backspace>") 'backward-kill-word))))
+{% endhighlight %}
+<em>M-x unview-include</em> will make the entire buffer visible again.  For convenience, view-include and unview-include have been bound to <em>C-c m i</em> and <em>C-c m u</em>, respectively.</p>

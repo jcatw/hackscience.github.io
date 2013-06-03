@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="Jekyll">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/text.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/960.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/css/pygments.css" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/blog.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <div id="header" class="container_16">
+      <div class="grid_2 suffix_14">
+	<h1 id="blog-name"><a href="/">hackscience</a></h1>
+      </div>
+    </div>
+    
+    <!-- main -->
+    <div id="full">
+      <div id="main" class="container_16">
+	<!-- content -->
+	<div id="content" class="grid_13">
+	  {{ content }}
+	</div>
+
+	<!-- sidebar -->
+	<div id="sidebar" class="grid_2 prefix_1">
+	  <a href="/"><img src="{{ site.url }}/images/avatar.png" width="100%"></img></a>
+	  <ul>
+	    <li><a href="/">Main</a></li>
+	    <li><a href="/all.html">All Posts</a></li>
+	    <div class="thinbar"></div>
+	    <li><a href="/atom.xml">Atom</a></li>
+	    <li><a href="https://github.com/hackscience/hackscience.github.io/">Source</a></li>
+	    <div class="thinbar"></div>
+	    {% for post in site.posts limit:site.srcitems %}
+	    {% if post.src %}
+	    <li><a href="{{ post.src }}">{{ post.title }}</a></li>
+	    {% endif %}
+	    {% endfor %}
+	  </ul>
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
