@@ -5,6 +5,7 @@ src: https://github.com/hackscience/include.el
 ---
 <p><a href="https://github.com/hackscience/include.el">include.el</a> manages dependencies between arbitrary chunks of elisp.  It provides a simple dependency syntax along with a few hacks to make the viewing and editing of dependencies easier.  I use it to keep my config file (kind of) sane, and to speed up the process of getting emacs up and running in a new environment.  You may find it useful for managing emacs packages.</p>
 
+<h2>Usage</h2>
 <p>To use the manager, put include.el somewhere on your load path, and add the following to your .emacs.
 
 {% highlight common-lisp %}
@@ -122,6 +123,7 @@ Note that if-included blocks can nest, as demonstrated in the slime block above.
 <p>include.el provides a simple mechanism for managing dependencies between includes.  One can add a :depends keyword to the include function call to specify a parent dependency which must be loaded first.  Under the hood, include.el constructs the directed dependency network and identifies a valid topological ordering via depth-first search.  Above, we use this mechanism to only load the abcl (armed bear common lisp) package if the slime interface is included.</p>
 
 
+<!--
 <p>Finally, and <strong>importantly</strong>, be sure to add <strong>(eval-included)</strong> to the end of your .emacs configuration.  The elisp blocks wrapped in if-included are not evaluated when the macro is evaluated, but are rather stored in a hash table called *included-elisp*.  This allows you to write your if-included blocks completely out of dependency order.
 {% highlight common-lisp %}
 ;; evaluate included elisp, respecting dependencies
@@ -129,7 +131,8 @@ Note that if-included blocks can nest, as demonstrated in the slime block above.
 ;;; .emacs ends here
 {% endhighlight %}
 (eval-included) identifies the proper load ordering and then sequentially evaluates the stored elisp.</p>
-  
+-->
+<h2>Editing</h2>
 <p>A few editing commands are provided as well.  Let's say that we want to edit our python-related configuration.  <em>M-x view-include name</em> will place an invisible overlay over all irrelevant content, leaving only the python-related elisp:
 
 {% highlight common-lisp %}
@@ -148,3 +151,66 @@ Note that if-included blocks can nest, as demonstrated in the slime block above.
 			 (define-key python-mode-map (kbd "C-<backspace>") 'backward-kill-word))))
 {% endhighlight %}
 <em>M-x unview-include</em> will make the entire buffer visible again.  For convenience, view-include and unview-include have been bound to <em>C-c m i</em> and <em>C-c m u</em>, respectively.</p>
+
+<h2>Packaging</h2>
+<p>
+  Many of my elisp projects begin life as snippets of config file, but
+  eventually mature into their own packages.  include.el smooths this
+  transition with <em>M-x package-include</em>, which takes
+  all code relevant to include <em>incl</em>, pretty-prints it to a
+  buffer named <em>incl.el</em>, and appends a <em>(provide
+  'incl)</em> clause.
+
+{% highlight common-lisp %}
+  (if-included 'random-hacks
+  (defun rand ()
+  (/ (float (random most-positive-fixnum)) (float most-positive-fixnum)))
+  (defmacro uniformly (&rest body)
+  (let ((mass (/ 1. (float (length body)))))
+  `(let ((random-draw (rand)))
+  (cond 
+  ,@(nreverse
+  (let ((i 1)
+  (result nil))
+  (while body
+  (setq result (cons `((< random-draw (* ,i ,mass)) ,(pop body)) result))
+			  (incf i))
+			  result))))))))
+{% endhighlight %}
+{% highlight common-lisp %}
+  (defun rand nil
+  (/
+   (float
+    (random most-positive-fixnum))
+   (float most-positive-fixnum)))
+
+(defmacro uniformly
+  (&rest body)
+  (let
+      ((mass
+	(/ 1
+	   (float
+	    (length body)))))
+    `(let
+	 ((random-draw
+	   (rand)))
+       (cond ,@(nreverse
+		(let
+		    ((i 1)
+		     (result nil))
+		  (while body
+		    (setq result
+			  (cons
+			   `((< random-draw
+				(* ,i ,mass))
+			     ,(pop body))
+			   result))
+		    (incf i))
+		  result))))))
+
+
+(provide 'random-hacks)
+;; random-hacks.el ends here			  
+{% endhighlight %}
+</p>
+
