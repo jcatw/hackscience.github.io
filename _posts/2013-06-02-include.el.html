@@ -164,26 +164,26 @@ Note that if-included blocks can nest, as demonstrated in the slime block above.
 
 {% highlight common-lisp %}
   (if-included 'random-hacks
-  (defun rand ()
-  (/ (float (random most-positive-fixnum)) (float most-positive-fixnum)))
-  (defmacro uniformly (&rest body)
-  (let ((mass (/ 1. (float (length body)))))
-  `(let ((random-draw (rand)))
-  (cond 
-  ,@(nreverse
-  (let ((i 1)
-  (result nil))
-  (while body
-  (setq result (cons `((< random-draw (* ,i ,mass)) ,(pop body)) result))
-			  (incf i))
-			  result))))))))
+	       (defun rand ()
+		 (/ (float (random most-positive-fixnum)) (float most-positive-fixnum)))
+	       (defmacro uniformly (&rest body)
+		 (let ((mass (/ 1. (float (length body)))))
+		   `(let ((random-draw (rand)))
+		      (cond 
+		       ,@(nreverse
+			  (let ((i 1)
+				(result nil))
+			    (while body
+			      (setq result (cons `((< random-draw (* ,i ,mass)) ,(pop body)) result))
+			      (incf i))
+			    result)))))))
 {% endhighlight %}
 {% highlight common-lisp %}
   (defun rand nil
-  (/
-   (float
-    (random most-positive-fixnum))
-   (float most-positive-fixnum)))
+    (/
+     (float
+      (random most-positive-fixnum))
+     (float most-positive-fixnum)))
 
 (defmacro uniformly
   (&rest body)
