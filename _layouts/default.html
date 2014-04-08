@@ -10,6 +10,10 @@
     <link rel="stylesheet" type="text/css" media="all" href="/css/pygments.css" />
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" media="all" href="/css/blog.css" />
+    {% if page.title == "about" %}
+      <script type="text/javascript" src="js/paper.js"></script>
+      <script type="text/paperscript" src="js/main.js" canvas="netwx"></script>
+    {% endif %}
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-41428049-1']);
