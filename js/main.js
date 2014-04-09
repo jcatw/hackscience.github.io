@@ -5,7 +5,7 @@ var edges = [];
 var k = 10.0;
 var G = 40.0;
 var l = 40.0;
-var delta_t = 0.02;
+var delta_t = 0.005;
 var physical = false;
 
 //drawing parameters
@@ -109,31 +109,31 @@ function onMouseUp(event) {
     }
 }
 
-//function onKeyDown(event) {
-//    //speed up
-//    if (event.key == '=') {
-//	delta_t += 0.01;
-//	textPoint.content = 'Delta t: ' + delta_t;
-//    }
-//    //slow down
-//    if (event.key == '-') {
-//	delta_t -= 0.01;
-//	if (delta_t < 0.0) {
-//	    delta_t = 0.0;
-//	}
-//	textPoint.content = 'Delta t: ' + delta_t;
-//    }
-//    //show force vectors?
-//    if (event.key == 'f') {
-//	forceLayer.visible = !forceLayer.visible;
-//	textPoint.content = 'Forces Visible: ' + forceLayer.visible;
-//    }
-//    //physical motion or linear in force?
-//    if (event.key == 'p') {
-//	physical = !physical;
-//	textPoint.content = 'Physical Forces: ' + physical;
-//    }
-//}
+function onKeyDown(event) {
+    //speed up
+    //if (event.key == '=') {
+    //	delta_t += 0.01;
+    //	textPoint.content = 'Delta t: ' + delta_t;
+    //}
+    ////slow down
+    //if (event.key == '-') {
+    //	delta_t -= 0.01;
+    //	if (delta_t < 0.0) {
+    //	    delta_t = 0.0;
+    //	}
+    //	textPoint.content = 'Delta t: ' + delta_t;
+    //}
+    ////show force vectors?
+    //if (event.key == 'f') {
+    //	forceLayer.visible = !forceLayer.visible;
+    //	textPoint.content = 'Forces Visible: ' + forceLayer.visible;
+    //}
+    //physical motion or linear in force?
+    if (event.key == 'p') {
+	physical = !physical;
+	//textPoint.content = 'Physical Forces: ' + physical;
+    }
+}
 
 
 function onFrame(event) {
