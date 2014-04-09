@@ -101,7 +101,7 @@ body {
     margin-bottom: 20px;
 }
 
-.post-content {
+.post-content, .about-content {
     font-family: "Droid-sans", sans-serif;
     line-height: 21px;
     font-size: 14px;
