@@ -3,3 +3,4 @@ pygments: true
 frontpageposts: 3
 srcitems: 5
 blogurl: http://www.hackscience.org
+markdown: kramdown
