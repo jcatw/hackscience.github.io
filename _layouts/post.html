@@ -2,7 +2,15 @@
 layout: default
 ---
 
-<h2 class="post-title"><a href="{{ post.url }}">{{ page.title }}</a></h2>
+<h2 class="post-title"><a href="{{ site.url page.url }}">{{ page.title }}</a></h2>
 <div class="byline">by James Atwood on {{ page.date | date: "%A, %B %d, %Y" }}</div>
-<div class="post-content">{{content}}</div>
+<div class="post-content">
+  {{content}}
+</div>
+<div class="thinbar"></div>
+<div class="footer">
+  <a href="{{ site.url page.url }}">permalink</a>
+  &middot;
+  <a href="reddit.com{{ site.url page.url }}">reddit</a>
+</div>
 <div class="hbar"></div>

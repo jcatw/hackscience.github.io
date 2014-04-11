@@ -1,4 +1,4 @@
-permalink: /:year/:month/:title.html
+permalink: pretty
 pygments: true
 frontpageposts: 3
 srcitems: 5

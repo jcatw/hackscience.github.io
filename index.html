@@ -7,7 +7,15 @@ title: hackscience
   {% for post in site.posts limit:site.frontpageposts %}
   <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
   <div class="byline">by James Atwood on {{ post.date | date: "%A, %B %d, %Y" }}</div>
-  <div class="post-content">{{ post.content }}</div>
+  <div class="post-content">
+    {{ post.content }}
+    <div class="thinbar"></div>
+    <div class="footer">
+      <a href="{{ post.url }}">permalink</a>
+      &middot;
+      <a href="http://www.reddit.com{{ post.url }}">reddit</a>
+    </div>
+  </div>
   <div class="hbar"></div>
   {% endfor %}
 </div>
