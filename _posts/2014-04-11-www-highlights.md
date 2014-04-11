@@ -16,3 +16,4 @@ title: WWW Highlights
 - [Bob](http://infolab.stanford.edu/~west1/) told me that you can buy a 1Tb (random access) memory machine for about
   $10,000.  I want it.  He also had this great insight that if you are disk-bound, but have a ton of ram, load the data
   into memory once and keep it there, querying it from client programs.
+- ["Florence: Where the future arrives sooner."](/img/wat.jpg)
