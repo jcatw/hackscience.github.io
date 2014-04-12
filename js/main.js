@@ -25,7 +25,7 @@ var forceLayer = new Layer();
 var nodeLayer = new Layer();
 //var termLayer = new Layer();
 
-forceLayer.visible = false
+forceLayer.visible = false;
 
 //make the terminal
 //termLayer.bounds.top = termLayer.bounds.bottom + 50.0;
@@ -33,6 +33,13 @@ forceLayer.visible = false
 //termRect = new Path.Rectangle(termLayer.bounds);
 //termRect.fillColor='black';
 
+//simple state machine for edge drawing
+var states = {};
+states.clean = 0;
+states.highlighted = 1;
+var highlightedNode = -1;
+
+var state = states.clean;
 
 function nodeExists(node) {
     var i=0;
@@ -57,7 +64,34 @@ function nodeIndex(node) {
 
 function onMouseDown(event) {
     if (nodeExists(event.point)) {
-	console.log("down, exists");
+	var i = nodeIndex(event.point);
+	if(nodes[i].highlighted) {
+	    nodes[i].highlighted = false;
+	    highlightedNode = -1;
+	    state = states.clean;
+
+	    project.activeLayer = nodeLayer;
+	    nodes[i].fillColor = 'black';
+	}
+	else if (state == states.clean) {
+	    nodes[i].highlighted = true;
+	    highlightedNode = i;
+	    state = states.highlighted;
+
+	    project.activeLayer = nodeLayer;
+	    nodes[i].fillColor = 'red';
+	    
+	}
+	else if (state == states.highlighted) {
+	    project.activeLayer = nodeLayer;
+	    nodes[i].fillColor = 'black';
+	    nodes[highlightedNode].fillColor = 'black';
+	    nodes[highlightedNode].highlighted = false;
+	    addEdge(i, highlightedNode);
+	    
+	    highlightedNode = -1;
+	    state = states.clean;
+	}
     }
     else {
 	project.activeLayer = nodeLayer;
@@ -73,19 +107,14 @@ function onMouseDown(event) {
 	node.vforce.add(node.position);
 	node.vforce.strokeWidth = forceWidth;
 	node.vforce.strokeColor = 'red';
+	node.highlighted = false;
 	project.activeLayer = nodeLayer;
 	
 	nodes.push(node);
     }
 }
 
-function onMouseUp(event) {
-    var from = event.downPoint;
-    var fromIndex = nodeIndex(from);
-    
-    var to = event.point;
-    var toIndex = nodeIndex(to);
-    
+function addEdge(fromIndex, toIndex) {
     if (fromIndex > -1 && toIndex > -1 && fromIndex != toIndex) {
 	// select the edge layer
 	project.activeLayer = edgeLayer;
@@ -108,6 +137,16 @@ function onMouseUp(event) {
 	nodes[toIndex].edges.push(fromIndex);
     }
 }
+
+//function onMouseUp(event) {
+//    var from = event.downPoint;
+//    var fromIndex = nodeIndex(from);
+//    
+//    var to = event.point;
+//    var toIndex = nodeIndex(to);
+//    
+//    addEdge(fromIndex, toIndex);
+//}
 
 function onKeyDown(event) {
     //speed up
@@ -145,19 +184,19 @@ function onFrame(event) {
     //	return
     //}
     
-    console.log("Number of nodes");
-    console.log(nodes.length);
+    //console.log("Number of nodes");
+    //console.log(nodes.length);
 
     //on each frame, populate the stack of forces
     var forces = [];
     for (i=0; i<nodes.length; i++) {
 	
-	console.log("Node #");
-	console.log(i);
-	console.log("Node Edges");
-	console.log(nodes[i].edges);
-	console.log("Node Velocity");
-	console.log(nodes[i].velocity);
+	//console.log("Node #");
+	//console.log(i);
+	//console.log("Node Edges");
+	//console.log(nodes[i].edges);
+	//console.log("Node Velocity");
+	//console.log(nodes[i].velocity);
 
 	// init force
 	var F = new Point(0.0, 0.0);
@@ -171,8 +210,8 @@ function onFrame(event) {
 	    // natural length l.
 	    for (j=0; j<nodes[i].edges.length; j++) {
 		x = nodes[i].position - nodes[nodes[i].edges[j]].position;
-		console.log("x");
-		console.log(x);
+		//console.log("x");
+		//console.log(x);
 		//can't seem to do scaler * vector,
 		//so we have this vector.multiply(scaler) business.
 		F = F - x.multiply(k * (x.length - l) / x.length); 
@@ -186,8 +225,8 @@ function onFrame(event) {
 		}
 	    }
 	}
-	console.log("Force After");
-	console.log(F);
+	//console.log("Force After");
+	//console.log(F);
 
 	// push F onto forces stack
 	// we traverse the nodes in order,
@@ -196,13 +235,13 @@ function onFrame(event) {
     }
 
     for (i=0; i<nodes.length; i++) {
-	console.log("Velocity:");
-	console.log(nodes[i].velocity);
-	console.log("Position:");
-	console.log(nodes[i].position);
-
-	console.log("delta_t");
-	console.log(delta_t);
+	//console.log("Velocity:");
+	//console.log(nodes[i].velocity);
+	//console.log("Position:");
+	//console.log(nodes[i].position);
+	//
+	//console.log("delta_t");
+	//console.log(delta_t);
 	
 	// update velocity and position according to force vector
 	if (physical) {
@@ -220,8 +259,8 @@ function onFrame(event) {
 	
     }
     for (j=0; j<edges.length; j++) {
-	console.log("segment 0 point");
-	console.log(edges[j].segments[0].point);
+	//console.log("segment 0 point");
+	//console.log(edges[j].segments[0].point);
 
 	edges[j].segments[0].point = nodes[edges[j].tail].position;
 	edges[j].segments[1].point = nodes[edges[j].head].position;
