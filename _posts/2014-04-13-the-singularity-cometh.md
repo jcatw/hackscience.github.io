@@ -14,10 +14,9 @@ happen.  Stop trying to make it happen.
 The idea behind the singularity is that, once some critical threshold
 is reached, intelligent machines will be able to make themselves even
 more intelligent.  What do more intelligent machines do?  Why, make
-themselves more intelligent!  Eventually they break out of this
-infinite regression and hack the planet, precipitating much gnashing
-of teeth / an endless dystopian horror. [Sound
-familiar](http://en.wikipedia.org/wiki/Terminator)?
+themselves more intelligent!  [Eventually they break out of this
+infinite regression, hack the planet, and commence endless dystopian
+horror](http://en.wikipedia.org/wiki/Terminator_(franchise)).
 
 The critical flaw here is that a super-intelligent machine depends on an
 intelligent-at-all machine, which *does not exist* and *probably never
