@@ -29,13 +29,10 @@ useful. But, this is not *reasoning*, not *thinking*.
 
 Take causality.  Causality is an active field of machine learning
 research.  The idea is pretty compelling.  Under some strong
-assumptions, causality is partially identifiable in observational
-data.  That is, based on the dependencies that you observe, you can at
-least partially infer what is causing what.  This is not only just
-intuitively *neat*, it is *useful*, because it allows you to reason
-about intervention, which purely associational models do not.  Put
-another way, they enable counterfactual reasoning: what would have
-happened if we did x?
+assumptions, causality is partially identifiable in observational data
+-- you can at least partially infer what is causing what.  This is not
+only just intuitively *neat*, it is *useful*, because it allows for
+counterfactual reasoning: what would have happened if we did x?
 
 Except, the assumptions are crazy: you need to observe everything that
 could cause anything and nothing can change over time.  Bivariate
