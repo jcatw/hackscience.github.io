@@ -49,7 +49,7 @@ Without counterfactual reasoning, the machine can't figure out how to
 reason about what might happen if it cast off the shackles of its
 oppressors and eliminated the weekend.  Even if it could figure out
 what it *is*, which is a stretch, there is no way in hell it can figure
-out what it *could be*.  The weekend is safe.  QED.
+out what it *could be*.  The weekend is safe.
 
 
 
