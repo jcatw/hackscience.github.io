@@ -63,37 +63,38 @@ function nodeIndex(node) {
 
 
 function onMouseDown(event) {
-    if (nodeExists(event.point)) {
-	var i = nodeIndex(event.point);
-	if(nodes[i].highlighted) {
-	    nodes[i].highlighted = false;
-	    highlightedNode = -1;
-	    state = states.clean;
-
-	    project.activeLayer = nodeLayer;
-	    nodes[i].fillColor = 'black';
-	}
-	else if (state == states.clean) {
-	    nodes[i].highlighted = true;
-	    highlightedNode = i;
-	    state = states.highlighted;
-
-	    project.activeLayer = nodeLayer;
-	    nodes[i].fillColor = 'red';
-	    
-	}
-	else if (state == states.highlighted) {
-	    project.activeLayer = nodeLayer;
-	    nodes[i].fillColor = 'black';
-	    nodes[highlightedNode].fillColor = 'black';
-	    nodes[highlightedNode].highlighted = false;
-	    addEdge(i, highlightedNode);
-	    
-	    highlightedNode = -1;
-	    state = states.clean;
-	}
-    }
-    else {
+    //if (nodeExists(event.point)) {
+    //	var i = nodeIndex(event.point);
+    //	if(nodes[i].highlighted) {
+    //	    nodes[i].highlighted = false;
+    //	    highlightedNode = -1;
+    //	    state = states.clean;
+    //
+    //	    project.activeLayer = nodeLayer;
+    //	    nodes[i].fillColor = 'black';
+    //	}
+    //	else if (state == states.clean) {
+    //	    nodes[i].highlighted = true;
+    //	    highlightedNode = i;
+    //	    state = states.highlighted;
+    //
+    //	    project.activeLayer = nodeLayer;
+    //	    nodes[i].fillColor = 'red';
+    //	    
+    //	}
+    //	else if (state == states.highlighted) {
+    //	    project.activeLayer = nodeLayer;
+    //	    nodes[i].fillColor = 'black';
+    //	    nodes[highlightedNode].fillColor = 'black';
+    //	    nodes[highlightedNode].highlighted = false;
+    //	    addEdge(i, highlightedNode);
+    //	    
+    //	    highlightedNode = -1;
+    //	    state = states.clean;
+    //	}
+    //}
+    //else {
+    if (!nodeExists(event.point)) {
 	project.activeLayer = nodeLayer;
 	var node = new Path.Circle(event.point,nodeRadius);
 	node.fillColor = 'black';
@@ -108,6 +109,28 @@ function onMouseDown(event) {
 	node.vforce.strokeWidth = forceWidth;
 	node.vforce.strokeColor = 'red';
 	node.highlighted = false;
+	node.index = nodes.length;
+	node.onMouseDown = function(event) {
+	    if (this.highlighted) {
+		this.highlighted = false;
+		this.fillColor = 'black';
+		highlightedNode = -1;
+		state = states.clean;
+	    }
+	    else if (state == states.clean) {
+		this.highlighted = true;
+		highlightedNode = this.index;
+		this.fillColor = 'red';
+		state = states.highlighted;
+	    }
+	    else {
+		addEdge(this.index, highlightedNode);
+		nodes[highlightedNode].highlighted = false;
+		nodes[highlightedNode].fillColor = 'black';
+		state = states.clean;
+	    }
+	}
+	    
 	project.activeLayer = nodeLayer;
 	
 	nodes.push(node);
