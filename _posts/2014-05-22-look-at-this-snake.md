@@ -58,5 +58,5 @@ This is probably a design pattern.  An Abstract Builder Delegator
 Builder Factory Builder, or something.  I have no idea.  Design
 patterns are the codified horror of a generation of programmers who
 were sold Smalltalk and delivered Java / C++.  But, I digress.
-[Look at this snake](images/snake.png).
+[Look at this snake](/images/snake.png).
 
