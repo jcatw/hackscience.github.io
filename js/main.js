@@ -97,7 +97,9 @@ function onMouseDown(event) {
     if (!nodeExists(event.point)) {
 	project.activeLayer = nodeLayer;
 	var node = new Path.Circle(event.point,nodeRadius);
-	node.fillColor = 'black';
+	nodes.push(node);
+	//node.fillColor = 'black';
+	node.fillColor = 'red';
 
 	node.edges = [];
 	node.velocity = new Point(0.0, 0.0);
@@ -108,8 +110,23 @@ function onMouseDown(event) {
 	node.vforce.add(node.position);
 	node.vforce.strokeWidth = forceWidth;
 	node.vforce.strokeColor = 'red';
-	node.highlighted = false;
+
+	//node.highlighted = false;
+	node.highlighted = true;
 	node.index = nodes.length;
+
+	//always highlight new nodes
+	if (state == states.clean) {
+	    highlightedNode = node.index;
+	    state = states.highlighted;
+	}
+	else {
+	    addEdge(highlightedNode, node.index);
+	    nodes[highlightedNode].highlighted = false;
+	    nodes[highlightedNode].fillColor = 'black';
+	    highlightedNode = node.index;
+	}
+	
 	node.onMouseDown = function(event) {
 	    if (this.highlighted) {
 		this.highlighted = false;
@@ -133,7 +150,7 @@ function onMouseDown(event) {
 	    
 	project.activeLayer = nodeLayer;
 	
-	nodes.push(node);
+	
     }
 }
 
