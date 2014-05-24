@@ -3,6 +3,7 @@ var edges = [];
 
 //physical constants
 var k = 10.0;
+//var G = 1000.0;
 var G = 40.0;
 var l = 40.0;
 var delta_t = 0.005;
@@ -147,10 +148,7 @@ function onMouseDown(event) {
 		state = states.clean;
 	    }
 	}
-	    
 	project.activeLayer = nodeLayer;
-	
-	
     }
 }
 
@@ -214,6 +212,10 @@ function onKeyDown(event) {
     }
 }
 
+function randindex(len) {
+    return Math.floor(Math.random() * len);
+}
+
 
 function onFrame(event) {
     var i=0;
@@ -223,6 +225,16 @@ function onFrame(event) {
     //	function onFrame(event) {}
     //	return
     //}
+
+    //if nothing is highlighted, highlight something
+    if(state == states.clean) {
+	highlightedNode = randindex(nodes.length);
+	nodes[highlightedNode].highlighted = true;
+	nodes[highlightedNode].fillColor = 'red';
+	state = states.highlighted;
+    }
+	
+	
     
     //console.log("Number of nodes");
     //console.log(nodes.length);
