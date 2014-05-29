@@ -23,3 +23,20 @@ fine.  If it is running outside, it segfaults about half the time.
 wtf. How do you even begin to fix something like this?
 
 Please have a look [here](https://github.com/hackscience/quicknet/tree/heisenbug).  I'm stumped.
+
+### edit
+I think I fixed it.  Here's the simple hash function I was using to assign pointer *x* to a bucket:
+
+{% highlight c %}
+((int) x) % N_BUCKETS
+{% endhighlight %}
+
+It just mods the value of the pointer.  That cast was what killed me; it should have been unsigned:
+
+{% highlight c %}
+((unsigned int) x) % N_BUCKETS
+{% endhighlight %}
+
+So, I was indexing into an array with negative values.  Maybe gdb is
+smart enough to index backwards, or something, which is why it never
+showed up in the debugger.  Spooky.
