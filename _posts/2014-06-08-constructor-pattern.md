@@ -27,7 +27,7 @@ duck *make_duck() {
 }
 {% endhighlight %}
 
-Furthermore, all memory must be deallocate through a 'Destructor'.  A
+Furthermore, all memory must be deallocated through a 'Destructor'.  A
 destructor must be called `free_duck` regardless of whether you are
 freeing a duck.  Destructors specify that ducks cost nothing and
 'tenure' them by appearing to perform a deallocation without actually
