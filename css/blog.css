@@ -63,6 +63,11 @@ body {
     margin: 7px;
 }
 
+.post-lead-image-right {
+    float: right;
+    margin: 7px;
+}
+
 .hbar {
     width: 100%;
     height: 3px;
