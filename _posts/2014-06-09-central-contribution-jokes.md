@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Central Contribution of this Work is Hilarious Jokes"
+title: "The Central Contribution of This Work is Hilarious Jokes"
 ---
 
 You should read
