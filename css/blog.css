@@ -82,6 +82,18 @@ body {
 		margin-bottom: 7px;
 }
 
+.centered {
+		text-align: center;
+}
+
+.post-lead-image-centered {
+		float: none;
+    margin-left: 0px;
+		margin-right: 0px;
+		margin-top: 7px;
+		margin-bottom: 7px;
+}
+
 .hbar {
     width: 100%;
     height: 3px;
