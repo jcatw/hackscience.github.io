@@ -63,9 +63,23 @@ body {
     margin: 7px;
 }
 
+/* same as .post-lead-image */
+.post-lead-image-left {
+    float: left;
+    margin: 7px;
+}
+
 .post-lead-image-right {
     float: right;
     margin: 7px;
+}
+
+.post-lead-image-unwrapped {
+		float: none;
+    margin-left: 0px;
+		margin-right: 0px;
+		margin-top: 7px;
+		margin-bottom: 7px;
 }
 
 .hbar {
