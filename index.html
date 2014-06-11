@@ -9,15 +9,16 @@ title: hackscience
   <div class="byline">by James Atwood on {{ post.date | date: "%A, %B %d, %Y" }}</div>
   <div class="post-content">
     {{ post.content }}
-    <div class="hbarthin"></div>
-    <div class="footer">
-      <a href="{{ post.url }}">permalink</a>
-      &middot;
-      <a href="http://www.reddit.com/{{site.blogurl}}{{post.url}}">reddit</a>
-    </div>
+	</div>
+  <div class="hbarthin"></div>
+  <div class="footer">
+    <a href="{{ post.url }}">permalink</a>
+    &middot;
+    <a href="http://www.reddit.com/{{site.blogurl}}{{post.url}}">reddit</a>
   </div>
   <div class="hbar"></div>
   {% endfor %}
   <div class="footer"><a href="/all">more</a></div>
   <br>
 </div>
+
