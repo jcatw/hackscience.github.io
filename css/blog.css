@@ -1,21 +1,18 @@
-#header {
-    height: 40px;
-/*    background-color: #ffffff;*/
-}
-
-body {
+/*body {
     background-color: #fbfbfb;
 }
+*/
 
 /*
 #main {
     background-color: #ffffff;
 }
 */
-
+/*
 #content {
     background-color: #fcfcfc;
 }
+*/
 
 #content a, a:visited {
     color: black;    
@@ -44,7 +41,7 @@ body {
     color: black;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 .post-title {
@@ -145,7 +142,6 @@ body {
     font-family: "Droid-sans", sans-serif;
     font-size: 1.2em;
     font-weight: bold;
-    margin-bottom: 20px;
 }
 
 .post-content, .about-content {
