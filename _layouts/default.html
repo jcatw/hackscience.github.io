@@ -2,27 +2,15 @@
 <html>
 	{% include header.html %}
   <body>
-    <!-- header
-		<div class="jumbotron">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-xs-2">
-						<h1 id="blog-name"><a href="/">hackscience</a></h1>
-					</div>
-				</div>
-			</div>
-		</div>
-		-->
-		
-		<!--navbar-->
+    <!--navbar-->
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="/">hackscience</a>
 				<ul class="nav navbar-nav">
 					<li><a href="/all/">All Posts</a></li>
 					<li><a href="/about/">About</a></li>
-					<li><a href="/atom.xml">Atom</a></li>
-					<li><a href="https://github.com/hackscience/hackscience.github.io/">Source</a></li>
+					<li><a class="hidden-xs" href="/atom.xml">Atom</a></li>
+					<li><a class="hidden-xs" href="https://github.com/hackscience/hackscience.github.io/">Source</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -31,20 +19,6 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div id="main">
-					<!-- sidebar 
-					<div id="sidebar" class="col-xs-1">
-						<a href="/"><img src="{{ site.url }}/images/avatar_thumb.png"></img></a>
-						<ul>
-							<li><a href="/">Main</a></li>
-							<li><a href="/all/">All Posts</a></li>
-							<li><a href="/about/">About</a></li>
-							<div class="thinbar"></div>
-							<li><a href="/atom.xml">Atom</a></li>
-							<li><a href="https://github.com/hackscience/hackscience.github.io/">Source</a></li>
-							<div class="thinbar"></div>
-						</ul>
-					</div>
-					-->
 					<!-- content -->
 					<div id="content" class="col-md-10 col-md-offset-1">
 						{{ content }}
