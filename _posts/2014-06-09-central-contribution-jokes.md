@@ -13,7 +13,7 @@ The paper, published in 2013, uses a
 [very](http://en.wikipedia.org/wiki/Singular_value_decomposition)
 [simple](http://en.wikipedia.org/wiki/Logistic_regression) [pipeline](http://en.wikipedia.org/wiki/Linear_regression) to predict user behaviors and characteristics using
 nothing but Facebook likes.  It does absurdly, horrifyingly
-well, providing near perfact accuracy for determining gender and
+well, providing near perfect accuracy for determining gender and
 ethnicity and impressive performance for other features.  Others have
 caught on - the paper has been cited 109 times in its fourteen months,
 giving a citation rate of about once every four days, which is quite a
