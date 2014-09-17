@@ -55,28 +55,28 @@
     color: inherit;
 }
 
-.post-lead-image {
+.post-lead-image .post-lead-image-left {
     float: left;
-    margin: 7px;
-}
-
-/* same as .post-lead-image */
-.post-lead-image-left {
-    float: left;
-    margin: 7px;
+		margin-left: 0px;
+		margin-right: 14px;
+		margin-top: 0px;
+		margin-bottom: 14px;
 }
 
 .post-lead-image-right {
     float: right;
-    margin: 7px;
+		margin-left: 14px;
+		margin-right: 0px;
+		margin-top: 0px;
+		margin-bottom: 14px;
 }
 
 .post-lead-image-unwrapped {
 		float: none;
     margin-left: 0px;
 		margin-right: 0px;
-		margin-top: 7px;
-		margin-bottom: 7px;
+		margin-top: 0px;
+		margin-bottom: 14px;
 }
 
 .centered {
