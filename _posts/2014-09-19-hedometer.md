@@ -22,7 +22,7 @@ $.jsonp({
 * Ask people (via mechanical turk) to rate the happiness level of individual words.
 * Predict the happiness of a held-out document by taking the dot product of normalized word frequencies and word happiness levels.
 
-That's it! Easy-peasy.  It needs to be, too; inference more complicated than a dot product is probably out if you are processing things on a reasonable-sample-of-the-twitter-firehose scale and want a real-time response.
+That's it! Easy-peasy.  It needs to be, too; inference that is more complicated than a dot product is probably out if you are processing things on a reasonable-sample-of-the-twitter-firehose scale and want a real-time response.
 
 The qualitative evaluations are pretty convincing - Saturdays are happier than Mondays, the Boston Marathon bombing was terrible, Christmas is great.  There wasn't much in the way of quantitative evaluations, but I'm not sure how you would even really go about that.
 
