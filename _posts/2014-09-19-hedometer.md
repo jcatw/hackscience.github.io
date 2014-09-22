@@ -28,6 +28,6 @@ The qualitative evaluations are pretty convincing - Saturdays are happier than M
 
 There's also [an actual-factual API](http://hedonometer.org/api.html)!  According to the hedometer, the current happiness level is <span id="happy" class="text-success">fail</span> out of 9.0.
 
-The simplicity + niceness of it really made me want to release the privacy-compromising-facebook-post chrome extention that I built over the summer.  People like well-visualized bag-of-words models.  Maybe I can liberate it from Technicolor.
+The simplicity + niceness of it really made me want to release the privacy-compromising-facebook-post chrome extension that I built over the summer.  People like well-visualized bag-of-words models.  Maybe I can liberate it from Technicolor.
 
 	
