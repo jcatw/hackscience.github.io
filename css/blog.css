@@ -18,6 +18,7 @@
     color: black;    
 }
 
+
 /*
 #sidebar {
     background-color: #ffffff;
@@ -139,15 +140,15 @@
 }
 
 .byline {
-    font-family: "Droid-sans", sans-serif;
+    /*font-family: "Droid-sans", sans-serif;*/
     font-size: 1.2em;
     font-weight: bold;
 }
 
 .post-content, .about-content {
-    font-family: "Droid-sans", sans-serif;
-    line-height: 21px;
-    font-size: 14px;
+    /*font-family: "Droid-sans", sans-serif;
+    line-height: 21px;*/
+    font-size: 15px;
 }
 
 .footer {
