@@ -26,7 +26,7 @@ That's it! Easy-peasy.  It needs to be, too; inference that is more complicated 
 
 The qualitative evaluations are pretty convincing - Saturdays are happier than Mondays, the Boston Marathon bombing was terrible, Christmas is great.  There wasn't much in the way of quantitative evaluations, but I'm not sure how you would even really go about that.
 
-There's also [an actual-factual API](http://hedonometer.org/api.html)!  According to the hedometer, the current happiness level is <span id="happy" class="text-success">0.00</span> out of 9.0.
+There's also [an actual-factual API](http://hedonometer.org/api.html)!  According to the hedometer, the current happiness level is <span id="happy" class="text-success">0.000</span> out of 9.0.
 
 The simplicity + niceness of it really made me want to release the privacy-compromising-facebook-post chrome extension that I built over the summer.  People like well-visualized bag-of-words models.  Maybe I can liberate it from Technicolor.
 
