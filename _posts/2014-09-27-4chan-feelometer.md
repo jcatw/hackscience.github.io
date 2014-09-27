@@ -46,11 +46,4 @@ board-by-board index of happiness.  It doesn't look good.
 <!--<canvas style="padding-left: 0;padding-right: 0;margin-left: auto;margin-right: auto;display: block;" id="initialFeel" width="720" height="720"></canvas>-->
 <div id="chart_div" style="width: 960px; height: 720px;"></div>
 
-The leftmost bar gives a baseline happiness level from twitter; everything else is a particular 4chan board.  The chans are pretty miserable places.  Strikingly, /tv/ doesn't like anything, and /int/ernational relations are poor.
-
-
-
-
-
-
-
+The leftmost bar gives a baseline happiness level from twitter; everything else is a particular 4chan board.  The chans are pretty miserable places.  In other news, water is wet.
