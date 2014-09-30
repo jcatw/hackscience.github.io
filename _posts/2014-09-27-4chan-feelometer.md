@@ -25,9 +25,8 @@ plotFeels('chart-div', initialResults, 6.012, true);
 
 4chan just isn't a very happy place, I'm afraid.
 
-I ran [the hedometer](http://hedonometer.org/) against
-recent 4chan comments to get a
-board-by-board index of happiness.  It doesn't look good.
+I ran [the hedometer](http://hedonometer.org/) ([previously]({% post_url 2014-09-19-hedometer %})) against recent 4chan comments to
+get a board-by-board index of happiness.  It doesn't look good.
 
 <!--<canvas style="padding-left: 0;padding-right: 0;margin-left: auto;margin-right: auto;display: block;" id="initialFeel" width="720" height="720"></canvas>-->
 <div id="chart-div" style="width: 720px; height: 720px;"></div>
