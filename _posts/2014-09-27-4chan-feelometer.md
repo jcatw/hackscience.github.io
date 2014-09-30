@@ -34,6 +34,6 @@ board-by-board index of happiness.  It doesn't look good.
 
 The leftmost bar gives a baseline happiness level from twitter; everything else is a particular 4chan board.  The chans are pretty miserable places.  In other news, water is wet.
 
-I actually wrote this entirely in client-side javascript a) for giggles and b) because this blog is just static pages.  Static pages doesn't imply static content, kids, although it does imply insane and slow javascript ([see for yourself](/js/posts/feelometer.js)).  Anyway, if you dwell on this post long enough, the up-to-the-moment results will appear below.
+I actually wrote this entirely in client-side javascript a) for giggles and b) because this blog is just static pages.  Static pages doesn't imply static content, folks, although it does imply insane and slow javascript ([see for yourself](/js/posts/feelometer.js)).  Anyway, if you dwell on this post long enough (and none of the underlying APIs barf) the up-to-the-moment results will appear below.
 
 <div id="currentFeel"></div>
