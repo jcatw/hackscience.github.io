@@ -73,6 +73,7 @@ $.jsonp({
 		// container for happiness-by-board results
 		var results = {};
 		var count = 0;
+		var checkCount = 0;
 		
 		// fire board-happiness-calculators
 		_.each(boards, function(board) {
@@ -118,7 +119,7 @@ $.jsonp({
 		// monitor the all of the asynchronous calls
 		// when everything is in, plot it
 		function check() {
-			if (count === boards.length && gotTwitter) {
+			if ((count === boards.length && gotTwitter) || checkCount > 30) {
 				console.log(JSON.stringify(results));
 				plotFeels('currentFeel', results, twitterHappy, false);
 			}
@@ -126,6 +127,7 @@ $.jsonp({
 				console.log('checking...');
 				setTimeout(check,1000);
 			}
+			checkCount += 1;
 		}
 		check();
 	}
