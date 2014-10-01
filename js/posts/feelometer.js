@@ -97,9 +97,11 @@ $.jsonp({
 						.value();
 
 					// translate from words to happiness and sum the results
+					wordCount = 0;
 					var raw_happiness = _.chain(words)
 						.map(function(word) {
 							if(dict[word]) {
+								wordCount++;
 								return dict[word];
 							}
 							return 0;
@@ -108,7 +110,7 @@ $.jsonp({
 						.value();
 					
 					// normalize by number of words
-					var happiness = raw_happiness / words.length;
+					var happiness = raw_happiness / wordCount;
 					results[board] = happiness;
 					console.log(board + ': ' + happiness);
 					count += 1;
