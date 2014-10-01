@@ -35,4 +35,8 @@ The leftmost bar gives a baseline happiness level from twitter; everything else 
 
 I actually wrote this entirely in client-side javascript a) for giggles and b) because this blog is just static pages.  Static pages doesn't imply static content, folks, although it does imply insane and slow javascript ([see for yourself](/js/posts/feelometer.js)).  Anyway, if you dwell on this post long enough (and none of the underlying APIs barf) the up-to-the-moment results will appear below.
 
+edit: A handful of the board requests are consistently 502-ing.  Can't tell if the [cors-workaround json proxy service](https://github.com/afeld/jsonp) is failing, or if 4chan is unhappy with the rate of requests.  It works for me, sometimes.  YMMV.
+
 <div id="currentFeel"></div>
+
+
