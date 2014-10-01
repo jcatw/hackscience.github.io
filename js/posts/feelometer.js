@@ -121,7 +121,7 @@ $.jsonp({
 		// monitor the all of the asynchronous calls
 		// when everything is in, plot it
 		function check() {
-			if ((count === boards.length && gotTwitter) || checkCount > 25) {
+			if ((count === boards.length && gotTwitter) || checkCount > 60) {
 				console.log(JSON.stringify(results));
 				plotFeels('currentFeel', results, twitterHappy, false);
 			}
