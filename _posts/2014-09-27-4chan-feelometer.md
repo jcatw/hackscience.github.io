@@ -37,7 +37,7 @@ I actually wrote this entirely in client-side javascript a) for giggles and b) b
 
 edit: A handful of the board requests are consistently 502-ing.  Can't tell if the [cors-workaround json proxy service](https://github.com/afeld/jsonp) is failing, or if 4chan is unhappy with the rate of requests.  It works for me, sometimes.  YMMV.
 
-double edit: Things began to work again immediately after the previous edit.  It seems related to [a known intermittent issue with the proxy](https://github.com/afeld/jsonp/issues/18).
+double edit: Things began to work again immediately after the previous edit.  It seems related to [a known intermittent issue with the proxy](https://github.com/afeld/jsonp/issues/18).  It now just plots whatever has come in after 30 seconds or so.
 
 <div id="currentFeel"></div>
 
