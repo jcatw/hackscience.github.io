@@ -73,6 +73,7 @@ $.jsonp({
 		// container for happiness-by-board results
 		var results = {};
 		var count = 0;
+		var checkCount = 0;
 		
 		// fire board-happiness-calculators
 		_.each(boards, function(board) {
@@ -96,9 +97,11 @@ $.jsonp({
 						.value();
 
 					// translate from words to happiness and sum the results
+					wordCount = 0;
 					var raw_happiness = _.chain(words)
 						.map(function(word) {
 							if(dict[word]) {
+								wordCount++;
 								return dict[word];
 							}
 							return 0;
@@ -107,7 +110,7 @@ $.jsonp({
 						.value();
 					
 					// normalize by number of words
-					var happiness = raw_happiness / words.length;
+					var happiness = raw_happiness / wordCount;
 					results[board] = happiness;
 					console.log(board + ': ' + happiness);
 					count += 1;
@@ -118,7 +121,7 @@ $.jsonp({
 		// monitor the all of the asynchronous calls
 		// when everything is in, plot it
 		function check() {
-			if (count === boards.length && gotTwitter) {
+			if ((count === boards.length && gotTwitter) || checkCount > 60) {
 				console.log(JSON.stringify(results));
 				plotFeels('currentFeel', results, twitterHappy, false);
 			}
@@ -126,6 +129,7 @@ $.jsonp({
 				console.log('checking...');
 				setTimeout(check,1000);
 			}
+			checkCount += 1;
 		}
 		check();
 	}
