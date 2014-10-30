@@ -1,9 +1,9 @@
-#content a, a:visited {
-    color: black;
-		font-weight: bolder;
-}
 #blog-name a, a:visited {
     text-decoration: none;
+    color: black;
+}
+
+#content a, a:visited {
     color: black;
 }
 
@@ -118,6 +118,10 @@
 
 .post-content, .about-content {
     font-size: 15px;
+}
+
+.post-content a, .post-content a:visited {
+		font-weight: bolder;
 }
 
 .footer {
