@@ -1,33 +1,7 @@
-/*body {
-    background-color: #fbfbfb;
-}
-*/
-
-/*
-#main {
-    background-color: #ffffff;
-}
-*/
-/*
-#content {
-    background-color: #fcfcfc;
-}
-*/
-
-
 #content a, a:visited {
     color: black;
 		font-weight: bolder;
 }
-
-
-
-/*
-#sidebar {
-    background-color: #ffffff;
-}
-*/
-
 #blog-name a, a:visited {
     text-decoration: none;
     color: black;
@@ -49,7 +23,6 @@
 }
 
 .post-title {
-    /*font-family: "Droid-sans", san-serif;*/
     padding: 0;
     margin: 0;
 }
@@ -102,8 +75,6 @@
     margin-bottom: 40px;
     background-color: #F87431;
     overflow: hidden;
-    /* padding-top: 5px;
-       padding-bottom: 5px; */
 }
 
 .hbarthin {
@@ -114,8 +85,6 @@
     margin-bottom: 2px;
     background-color: #F87431;
     overflow: hidden;
-    /* padding-top: 5px;
-       padding-bottom: 5px; */
 }
 
 .thinbar {
@@ -143,22 +112,17 @@
 }
 
 .byline {
-    /*font-family: "Droid-sans", sans-serif;*/
     font-size: 1.2em;
     font-weight: bold;
 }
 
 .post-content, .about-content {
-    /*font-family: "Droid-sans", sans-serif;
-    line-height: 21px;*/
     font-size: 15px;
 }
 
 .footer {
     text-align: center;
     font-weight: bold;
-    /*margin-top: ;
-    margin-bottom: -30px;*/
 }
 
 .footer a, .footer a:visited {
