@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The Hedometer
+ads: true
 ---
 <a href="http://hedonometer.org/"><img class="post-lead-image-right" src="/images/hedonometer.jpeg"/></a>
 
