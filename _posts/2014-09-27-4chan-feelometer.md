@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 4chan Feelometer
+ads: true
 ---
 <!--<script src="/bower_components/Chart.js/Chart.min.js"></script>-->
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Education Side Effects
+ads: true
 ---
 
 So, working on a PhD in Computer Science is a pretty strange thing,
