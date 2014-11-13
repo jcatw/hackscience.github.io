@@ -5,7 +5,7 @@ ads: true
 ---
 I spend a decent chunk of each day using emacs.  It is a pretty strange habit, to be sure, and one that I sometimes try to break.  I always come back, though.
 
-Take today.  I was working on a static blog generator to replace this one, and I needed to literally escape a whole bunch of html.  This looked like it was going to be a huge pain in one cheek (doing it manually or with sed or something) or another (writing a jinja2 extension).  Thankfully, I found [this blog post](http://shallowsky.com/blog/linux/editors/emacs-escape-html.html) from Akkana Peck describing how to escape a region of html in-place in an emacs buffer.  Hallelujah.
+Take today.  I was working on a static blog generator to replace this one, and I needed to literally escape a whole bunch of html.  Thankfully, I found [this blog post](http://shallowsky.com/blog/linux/editors/emacs-escape-html.html) from Akkana Peck describing how to escape a region of html in-place in an emacs buffer.  Hallelujah.
 
 Here's the elisp:
 {% highlight common-lisp %}
@@ -23,7 +23,9 @@ Here's the elisp:
 			)))
 {% endhighlight %}
 
-You know, a glorified text editor / actually-really-a-lisp-environment
+Simple, right? Go to the beginning, find &s, replace them, then go the beginning, find <s, replace them, etc.  Emacs is great for automating these little tasks.
+
+But, a glorified text editor / actually-really-a-lisp-environment
 is going to have real trouble competing with something like, say,
 IntelliJ IDEA, when, say, you are working on some
 [monsterous enterprise java thing](https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition)
@@ -109,7 +111,5 @@ interspersed throughout.
 
 Is any of this actually productive?  I don't know.  Probably? Maybe.
 My hands never really leave the keyboard and I can zip around like
-all-get-out.  The key here is to realize that hacking on your text
-editor is going to be fun and soothing and easily rationalizable in
-terms of time-down-the-line saved and to avoid spending your whole day
-doing it or blogging about it.
+all-get-out.  They key here is to hack lightly.  Don't spend all day
+modifying emacs.  Definitely don't write blog posts about it.
