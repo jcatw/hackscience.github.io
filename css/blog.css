@@ -1,3 +1,7 @@
+html * {
+		font-family: 'Droid Sans', sans-serif;
+}
+
 #blog-name a, a:visited {
     text-decoration: none;
     color: black;
@@ -23,6 +27,7 @@
 }
 
 .post-title {
+
     padding: 0;
     margin: 0;
 }
@@ -117,7 +122,7 @@
 }
 
 .post-content, .about-content {
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .post-content a, .post-content a:visited {
