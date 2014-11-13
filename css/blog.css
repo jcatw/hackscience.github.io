@@ -2,6 +2,10 @@ html * {
 		font-family: 'Droid Sans', sans-serif;
 }
 
+code * {
+		font-family: 'Droid Sans Mono';
+}
+
 #blog-name a, a:visited {
     text-decoration: none;
     color: black;
