@@ -1,7 +1,22 @@
 ---
 layout: default
 ---
+{% if page.ads %}
+	<div align="center">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- Resp -->
+		<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-3836133771897058"
+				 data-ad-slot="7947180325"
+				 data-ad-format="auto"></ins>
+		<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+	{% endif %}
 <div class="panel">
+	
 	<div class="panel-heading">
 		<h2 class="post-title"><a href="{{ site.url page.url }}">{{ page.title }}</a></h2>
 		<div class="byline">by James Atwood on {{ page.date | date: "%A, %B %d, %Y" }}</div>
@@ -22,30 +37,5 @@ layout: default
 			<a href="{{ page.next.url }}">next</a>
 		</div>
 	</div>
-	{% if page.ads %}
-	<div align="center">
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- link horizontal med -->
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- Resp -->
-		<ins class="adsbygoogle"
-				 style="display:block"
-				 data-ad-client="ca-pub-3836133771897058"
-				 data-ad-slot="7947180325"
-				 data-ad-format="auto"></ins>
-		<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-		<!--
-		<ins class="adsbygoogle"
-				 style="align:center;display:inline-block;width:468px;height:15px"
-				 data-ad-client="ca-pub-3836133771897058"
-				 data-ad-slot="5316614726"></ins>
-		<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-		-->
-	</div>
-	{% endif %}
 </div>
 		
