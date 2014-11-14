@@ -35,7 +35,12 @@ function plotFeels(divname, chanResults, twitterVal, async) {
 		var options = {'title':'4chan Feels',
 									 'width':720,
 									 'height':720,
-									 'legend': {position: 'none'}};
+									 'legend': {position: 'none'},
+									 vAxis: {
+										 viewWindow: {
+											 min: 0,
+											 max: 9,
+										 }}};
 		var chart = new google.visualization.ColumnChart(document.getElementById(divname));
 		
 		chart.draw(data, options);
