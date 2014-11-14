@@ -1,6 +1,7 @@
 ---
 layout: post
 title: No Longer in Technicolor
+ads: true
 ---
 <img src="/images/dorothyBW.jpg" class="post-lead-image-right"/>
 

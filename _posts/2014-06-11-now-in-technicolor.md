@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Now in Technicolor
+ads: true
 ---
 <img src="/images/dorothy.jpg" class="post-lead-image-unwrapped"/><br/>
 

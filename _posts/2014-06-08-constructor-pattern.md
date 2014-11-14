@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The Constructor Design Pattern
+ads: true
 ---
 <img height="320" width="320" class="post-lead-image-right" src="/images/buttduck.jpg"/>
 Creating and initializing a composite data type is

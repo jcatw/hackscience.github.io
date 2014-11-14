@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "The Central Contribution of This Work is Hilarious Jokes"
+ads: true
 ---
 
 You should read
