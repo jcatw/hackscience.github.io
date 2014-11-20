@@ -15,7 +15,7 @@ it post for me and see if anyone notices.
 
 So, uh, I decided to roll my own static blog generator, or rather,
 hack the bejesus out of someone else's framework
-([http://obraz.pirx.ru/](obraz), a very nice partial Jekyll clone
+([obraz](http://obraz.pirx.ru/), a very nice partial Jekyll clone
 written in Python).  Soon I'll be transitioning this blog to the new
 system.  The permalinks will probably change to something prettier,
 but everything should redirect.
