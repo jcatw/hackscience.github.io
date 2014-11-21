@@ -1,7 +1,7 @@
 ---
 layout: post
 title: jwz puzzle
-ads: False
+ads: True
 ---
 Ok, does this hex mean anything to anyone?  
 
