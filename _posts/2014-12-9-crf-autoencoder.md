@@ -13,11 +13,17 @@ trick, to insist that the latent labels actually be able to generate
 the features.
 
 However, that said, it does seem like a step back towards markov
-random fields.  CRFs are suppose to work so well because they are
-discriminitive rather than generative - that is, no effort is wasted
-modeling the uncertainty over the entire problem space, and only the
-conditional distribution of the labels is important.  CRF autoencoders
-seem to move more towards a generative approach, because the ability
-of the labels to generate the features is a factor in the objective.
-If a CRF autoencoder works well, how well would a markov random field
-do on the same task?
+random fields.  CRFs work so well because they are discriminitive
+rather than generative - no effort is wasted modeling the uncertainty
+over the entire problem space, and only the conditional distribution
+of the labels is important.  CRF autoencoders seem to move more
+towards a generative approach, because the ability of the labels to
+generate the features is a factor in the objective.  If a CRF
+autoencoder performs well on a task, how well would a markov random
+field work?
+
+edit: I just spoke with author / presenter Waleed Ammar (nice guy).
+He pointed out that learning the corresponding MRF would be *very
+slow*, which makes sense.
+
+Paper: [Conditional Random Field Autoencoders for Unsupervised Structured Prediction](http://arxiv.org/abs/1411.1147)
