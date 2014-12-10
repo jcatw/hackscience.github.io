@@ -3,6 +3,8 @@ layout: post
 title: CRF Autoencoders
 ---
 
+Paper: [Conditional Random Field Autoencoders for Unsupervised Structured Prediction](http://arxiv.org/abs/1411.1147)
+
 CRF autoencoders (just now presented at NIPS) seem pretty neat.  The
 central idea is to add an autoencoding layer to the typical
 latent-variable chain-structured conditional random field.  This
@@ -26,4 +28,3 @@ edit: I just spoke with author / presenter Waleed Ammar (nice guy).
 He pointed out that learning the corresponding MRF would be *very
 slow*, which makes sense.
 
-Paper: [Conditional Random Field Autoencoders for Unsupervised Structured Prediction](http://arxiv.org/abs/1411.1147)
